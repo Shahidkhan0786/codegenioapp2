@@ -23,7 +23,13 @@ export class ProductController
 
     //list of products 
     async list(req:Request, res:Response){
-        const data = await Product.findAll();
+        const data = await Product.findAll({
+            attributes: ['title' , 'price'],
+            include: {
+                model:Category,
+                attributes:['name']
+            }
+        });
         return SuccessRes(res, 'ok', data);
     }
 
@@ -103,5 +109,20 @@ export class ProductController
         return SuccessRes(res, "successfully deleted" ,result);
     }
 
+     //list of products 
+     async listbyCategory(req:Request, res:Response){
+        console.log(req.query)
+        const CategoryId:number = Number(req.query.id)
+        console.log(CategoryId)
+        const data = await Product.findAll({
+            attributes: ['title' , 'price'],
+            include: {
+                model:Category,
+                attributes:['name'],
+                where: {id: CategoryId}
+            }
+        });
+        return SuccessRes(res, 'ok', data);
+    }
 
 }

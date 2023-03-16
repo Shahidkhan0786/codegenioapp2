@@ -7,7 +7,7 @@
     "clean": "rm -rf dist",
     "assets": "cp package.json dist/ && cp .env dist/",
     "start": "./node_modules/.bin/tsc-watch --onSuccess \"node ./dist/crud-app.js\"",
-    "startDev": "./node_modules\\.bin\\tsc-watch --onSuccess \"node dist\\crud-app.js\"",
+    "startDev": "./node_modules/.bin/tsc-watch --onSuccess \"node dist/crud-app.js\"",
     "debug": "SET DEBUG=* && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && ./node_modules/.bin/tsc && npm run assets && cd dist && pm2 restart crud-app.js"

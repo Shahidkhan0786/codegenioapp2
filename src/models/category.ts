@@ -6,6 +6,7 @@ import {
   ForeignKey,
 } from "sequelize";
 import { sequelize } from "../config/connection";
+import { Product } from './product';
 
 export class Category extends Model<
   InferAttributes<Category>,
@@ -47,6 +48,13 @@ Category.init(
     timestamps: false,
   }
 );
+
+Category.hasMany(Product ,{
+  foreignKey: 'categoryId',
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+
 
 // module.exports = (sequelize: any, DataTypes: any) => {
 //   class Category extends Model {

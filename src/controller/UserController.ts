@@ -27,7 +27,7 @@ export class UserController {
     }
 
     async list(req: Request , res: Response){
-        const user = await User.findAll();
+        const user = await User.findAll({attributes: ['firstName', 'lastName', 'email', 'userType']});
         return res.status(201).json({
             "Success": true,
             data: user

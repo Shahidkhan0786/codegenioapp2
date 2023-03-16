@@ -21,7 +21,7 @@
 //   });
 //   return Product;
 // };
-
+import {Category} from "./category"
 
 import {
   Model,
@@ -78,3 +78,4 @@ Product.init(
     // timestamps: false,
   }
 );
+

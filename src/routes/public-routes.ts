@@ -5,6 +5,7 @@ import { UserController } from '../controller/UserController';
 import { CategoryController } from '../controller/CategoryController';
 import { Category } from '../models/category';
 import { ProductController } from '../controller/ProductController';
+import { Product } from '../models/product';
 
 
 export class PublicRoutes extends RoutesConfig{
@@ -61,6 +62,9 @@ export class PublicRoutes extends RoutesConfig{
         route.put('/update/:id' , controller.updateProduct)
         // del product 
         route.delete('/del/:id' , controller.delproduct)
+
+        // get Products by cat id 
+        route.get('/listprodbycategory' , controller.listbyCategory);
 
         this.route.use('/product' , route);
     }

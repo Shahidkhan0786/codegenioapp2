@@ -1,6 +1,6 @@
 // 'use strict';
 // /** @type {import('sequelize-cli').Migration} */
-// import { QueryInterface, DataTypes } from 'sequelize';
+const { QueryInterface, DataTypes } = require('sequelize');
 
 // module.exports = {
 //   async up(queryInterface:QueryInterface) {
